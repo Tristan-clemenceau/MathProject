@@ -4,16 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PmoinsUnPollard {
-	private long a;
-	private long i;
-	private long d;
 	final static List<Integer> primaryNumber = new ArrayList<Integer>();
 	private List<Long> primaryWare;
 
 	public PmoinsUnPollard() {
-		a = 2;
-		i = 2;
-		d = 0;
 		primaryWare = new ArrayList<Long>();
 	}
 	
