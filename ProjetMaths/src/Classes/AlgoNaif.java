@@ -37,6 +37,7 @@ public class AlgoNaif {
 		}
 		/*display Hasmap*/
 		displayMat();
+		System.out.println("\n===============[FACTORISATION algo Naif]===============");
 		
 	}
 	

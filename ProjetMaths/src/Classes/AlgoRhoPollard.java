@@ -1,16 +1,13 @@
 package Classes;
 
-<<<<<<< HEAD
 import java.math.BigInteger;
 import java.security.SecureRandom;
-    
-=======
+
 public class AlgoRhoPollard {
 	
 	//yo double yo
->>>>>>> branch 'master' of git@github.com:Tristan-clemenceau/MathProject.git
 
-class PollardRho {
+/*class PollardRho {
 	
     private final static BigInteger ZERO = new BigInteger("0");
     private final static BigInteger ONE  = new BigInteger("1");
@@ -49,4 +46,5 @@ class PollardRho {
         BigInteger N = new BigInteger(args[0]);
         factor(N);
     }
+}*/
 }
