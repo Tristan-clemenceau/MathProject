@@ -10,7 +10,7 @@ public class Main {
 		PmoinsUnPollard pm = new PmoinsUnPollard();
 		
 		algo1.factoristation(n);
-		pm.factoristation(1);
+		pm.factoristation(n);
 
 	}
 
