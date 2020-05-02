@@ -1,8 +1,14 @@
 package Classes;
 
+<<<<<<< HEAD
 import java.math.BigInteger;
 import java.security.SecureRandom;
     
+=======
+public class AlgoRhoPollard {
+	
+	//yo double yo
+>>>>>>> branch 'master' of git@github.com:Tristan-clemenceau/MathProject.git
 
 class PollardRho {
 	
