@@ -27,21 +27,27 @@ class AlgoRhoPollard {
 				xx = xx.multiply(xx).mod(N).add(c).mod(N);
 				xx = xx.multiply(xx).mod(N).add(c).mod(N);
 				divisor = x.subtract(xx).gcd(N);
+			
 			}
 
 			while ((divisor.compareTo(ONE)) == 0);
-
+			
 			return divisor;
 		}
 
 		public static void factor(BigInteger N) {
+			
+			
 
-			if (N.compareTo(ONE) == 0)
-				return;
+			if (N.compareTo(ONE) == 0) {
+				
+				return;}
+			
 			if (N.isProbablePrime(20)) {
 				System.out.println(N);
 				return;
 			}
+			
 			BigInteger divisor = rho(N);
 			factor(divisor);
 			factor(N.divide(divisor));

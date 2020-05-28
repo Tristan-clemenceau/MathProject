@@ -7,8 +7,13 @@ public class Main {
 	public static void main(String[] args) {
 		
 		/////// ALGO RHO DE POLLARD //////
+<<<<<<< HEAD
 		String input1 = ""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE;
+=======
+		String input1 = "4946546455565";
+>>>>>>> branch 'master' of git@github.com:Tristan-clemenceau/MathProject.git
 		BigInteger N = new BigInteger(input1);
+<<<<<<< HEAD
 		//AlgoRhoPollard algo2 = new AlgoRhoPollard();
 		Test test01 = new Test();
 
@@ -17,13 +22,23 @@ public class Main {
 			BigInteger inpTT = new BigInteger(Long.toString(i));
 			test01.factoristation(inpTT);
 		}
+=======
+		AlgoRhoPollard algo2 = new AlgoRhoPollard();
+		System.out.println("===============[FACTORISATION algo rho de Pollard]===============\"");
+		System.out.println("N =" +" "+ N + "" );
+		System.out.println("Factorisation de N :");
+		algo2.factor(N);
+>>>>>>> branch 'master' of git@github.com:Tristan-clemenceau/MathProject.git
 		
+<<<<<<< HEAD
 		
 		/*AlgoNaif algo = new AlgoNaif();
         String s = "10" ;
         BigInteger bI = new BigInteger(s) ;
         algo.factoristation2(bI);*/
 		
+=======
+>>>>>>> branch 'master' of git@github.com:Tristan-clemenceau/MathProject.git
 		/////// ALGO NAIF //////
 		/*long n = 1548974564L;
 		
