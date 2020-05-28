@@ -7,12 +7,13 @@ public class Main {
 	public static void main(String[] args) {
 		
 		/////// ALGO RHO DE POLLARD //////
-		String input1 = "654";
+		String input1 = "4946546455565";
 		BigInteger N = new BigInteger(input1);
 		AlgoRhoPollard algo2 = new AlgoRhoPollard();
-
+		System.out.println("===============[FACTORISATION algo rho de Pollard]===============\"");
+		System.out.println("N =" +" "+ N + "" );
+		System.out.println("Factorisation de N :");
 		algo2.factor(N);
-		
 		
 		/////// ALGO NAIF //////
 		
