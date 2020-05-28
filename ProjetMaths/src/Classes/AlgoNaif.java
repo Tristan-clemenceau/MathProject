@@ -1,5 +1,6 @@
 package Classes;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,34 +10,66 @@ import java.util.List;
  *
  */
 public class AlgoNaif {
-	final static List<Integer> primaryNumber = new ArrayList<Integer>();
-	private HashMap<Long,Long> hm = new HashMap<Long,Long>();
+	final static List<BigInteger> primaryNumber = new ArrayList<BigInteger>();
+	private HashMap<BigInteger,BigInteger> hm = new HashMap<BigInteger,BigInteger>();
+	private int nbOperations = 0;
 
 	public AlgoNaif() {
-		initList();
+		//initList();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public boolean isDivisible(long n,long diviseur) {
-		return (n%diviseur)==0;
+	public boolean isDivisible(BigInteger n,BigInteger diviseur) {
+		nbOperations ++ ;
+		return n.mod(diviseur)== BigInteger.valueOf(0);
 	}
 	
-	public void factoristation(long n) {
+	public boolean isPrime(BigInteger n) {
+		nbOperations ++ ;
+		return n.isProbablePrime(Integer.MAX_VALUE);
+	}
+
+	
+	public void factoristation2(BigInteger n) {
+		initPrimaryNumber(n);
 		System.out.println("===============[FACTORISATION algo Naif]==============="+"\nN = "+n);
-		for (Integer integer : primaryNumber) {
-			long cpt = 0;
-			while(isDivisible(n, integer)) {
-				cpt++;
-				hm.put((long)integer, cpt);
-				n = n/integer;
+		for (BigInteger bigInteger : primaryNumber) {
+			BigInteger cpt = BigInteger.valueOf(0);
+			while(isPrime(n)) {
+				cpt = cpt.add(BigInteger.valueOf(1));
+				hm.put(bigInteger, cpt);
+				n = n.divide(bigInteger);
 			}
 		}
 		
-		if(n != 1) {
-			hm.put(n, (long)1);
+		if(n != BigInteger.valueOf(1) ) {
+			hm.put(n, BigInteger.valueOf(1));
 		}
-		/*display Hasmap*/
+		/*display Hashmap*/
 		displayMat();
+		System.out.println("\nNombre d'opérations = " + nbOperations ) ;
+		System.out.println("\n===============[FACTORISATION algo Naif]===============");
+		
+	}
+	
+	
+	public void factoristation(BigInteger n) {
+		System.out.println("===============[FACTORISATION algo Naif]==============="+"\nN = "+n);
+		for (BigInteger bigInteger : primaryNumber) {
+			BigInteger cpt = BigInteger.valueOf(0);
+			while(isDivisible(n, bigInteger)) {
+				cpt = cpt.add(BigInteger.valueOf(1));
+				hm.put(bigInteger, cpt);
+				n = n.divide(bigInteger);
+			}
+		}
+		
+		if(n != BigInteger.valueOf(1) ) {
+			hm.put(n, BigInteger.valueOf(1));
+		}
+		/*display Hashmap*/
+		displayMat();
+		System.out.println("\nNombre d'opérations = " + nbOperations ) ;
 		System.out.println("\n===============[FACTORISATION algo Naif]===============");
 		
 	}
@@ -44,7 +77,7 @@ public class AlgoNaif {
 	private void displayMat() {
 		int cpt = 0;
 		System.out.print("factorisation(N) = ");
-		for (Long key : hm.keySet()) {
+		for (BigInteger key : hm.keySet()) {
 			cpt++;
 			if(cpt == hm.size()) {
 				System.out.print(key+"^"+hm.get(key));
@@ -54,31 +87,41 @@ public class AlgoNaif {
 		}
 	}
 	
+	public void initPrimaryNumber(BigInteger n) {
+		BigInteger square = n.sqrt();
+		BigInteger number = BigInteger.valueOf(1);
+		for(number= BigInteger.valueOf(1); (number.add(BigInteger.valueOf(1))).compareTo(square) == -1 ; number.add(BigInteger.valueOf(1))) {
+			if (number.isProbablePrime(Integer.MAX_VALUE)) {
+				primaryNumber.add(number);
+			}
+		}
+	}
+	
 	private void initList() {
-		primaryNumber.add(2);
-		primaryNumber.add(3);
-		primaryNumber.add(5);
-		primaryNumber.add(7);
-		primaryNumber.add(11);
-		primaryNumber.add(13);
-		primaryNumber.add(17);
-		primaryNumber.add(19);
-		primaryNumber.add(23);
-		primaryNumber.add(29);
-		primaryNumber.add(31);
-		primaryNumber.add(37);
-		primaryNumber.add(41);
-		primaryNumber.add(43);
-		primaryNumber.add(47);
-		primaryNumber.add(53);
-		primaryNumber.add(59);
-		primaryNumber.add(61);
-		primaryNumber.add(71);
-		primaryNumber.add(73);
-		primaryNumber.add(79);
-		primaryNumber.add(83);
-		primaryNumber.add(89);
-		primaryNumber.add(97);
+		primaryNumber.add(BigInteger.valueOf(2));
+		primaryNumber.add(BigInteger.valueOf(3));
+		primaryNumber.add(BigInteger.valueOf(5));
+		primaryNumber.add(BigInteger.valueOf(7));
+		primaryNumber.add(BigInteger.valueOf(11));
+		primaryNumber.add(BigInteger.valueOf(13));
+		primaryNumber.add(BigInteger.valueOf(17));
+		primaryNumber.add(BigInteger.valueOf(19));
+		primaryNumber.add(BigInteger.valueOf(23));
+		primaryNumber.add(BigInteger.valueOf(29));
+		primaryNumber.add(BigInteger.valueOf(31));
+		primaryNumber.add(BigInteger.valueOf(37));
+		primaryNumber.add(BigInteger.valueOf(41));
+		primaryNumber.add(BigInteger.valueOf(43));
+		primaryNumber.add(BigInteger.valueOf(47));
+		primaryNumber.add(BigInteger.valueOf(53));
+		primaryNumber.add(BigInteger.valueOf(59));
+		primaryNumber.add(BigInteger.valueOf(61));
+		primaryNumber.add(BigInteger.valueOf(71));
+		primaryNumber.add(BigInteger.valueOf(73));
+		primaryNumber.add(BigInteger.valueOf(79));
+		primaryNumber.add(BigInteger.valueOf(83));
+		primaryNumber.add(BigInteger.valueOf(89));
+		primaryNumber.add(BigInteger.valueOf(97));
 	}
 
 	@Override

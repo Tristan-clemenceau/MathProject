@@ -7,22 +7,31 @@ public class Main {
 	public static void main(String[] args) {
 		
 		/////// ALGO RHO DE POLLARD //////
-		String input1 = "654";
+		String input1 = ""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE;
 		BigInteger N = new BigInteger(input1);
-		AlgoRhoPollard algo2 = new AlgoRhoPollard();
+		//AlgoRhoPollard algo2 = new AlgoRhoPollard();
+		Test test01 = new Test();
 
-		algo2.factor(N);
+		//algo2.factor(N);
+		for (long i = 2; i < Long.MAX_VALUE; i++) {
+			BigInteger inpTT = new BigInteger(Long.toString(i));
+			test01.factoristation(inpTT);
+		}
 		
+		
+		/*AlgoNaif algo = new AlgoNaif();
+        String s = "10" ;
+        BigInteger bI = new BigInteger(s) ;
+        algo.factoristation2(bI);*/
 		
 		/////// ALGO NAIF //////
+		/*long n = 1548974564L;
 		
-		long n = 53628957L;
-
 		AlgoNaif algo1 = new AlgoNaif();
 		PmoinsUnPollard pm = new PmoinsUnPollard();
 		
 		algo1.factoristation(n);
-		pm.factoristation(n);
+		pm.factoristation(n);*/
 
 	}
 
