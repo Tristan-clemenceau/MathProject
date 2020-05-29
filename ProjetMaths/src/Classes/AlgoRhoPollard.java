@@ -5,53 +5,66 @@ import java.security.SecureRandom;
 
 class AlgoRhoPollard {
 
-		private final static BigInteger ZERO = new BigInteger("0");
-		private final static BigInteger ONE = new BigInteger("1");
-		private final static BigInteger TWO = new BigInteger("2");
-		private final static SecureRandom random = new SecureRandom();
+	private final static BigInteger ZERO = new BigInteger("0");
+	private final static BigInteger ONE = new BigInteger("1");
+	private final static BigInteger TWO = new BigInteger("2");
+	private final static SecureRandom random = new SecureRandom();
+	private long nbOperation;
+	private String nameAlgo = "AlgoRhoPollard";
 
-		public static BigInteger rho(BigInteger N) {
+	public AlgoRhoPollard() {
+		nbOperation = 0;
+	}
 
-			BigInteger divisor;
-			BigInteger c = new BigInteger(N.bitLength(), random);
-			BigInteger x = new BigInteger(N.bitLength(), random);
-			BigInteger xx = x;
+	public static BigInteger rho(BigInteger N) {
 
-			// check divisibility by 2
-			if (N.mod(TWO).compareTo(ZERO) == 0)
-				return TWO;
+		BigInteger divisor;
+		BigInteger c = new BigInteger(N.bitLength(), random);
+		BigInteger x = new BigInteger(N.bitLength(), random);
+		BigInteger xx = x;
 
-			do {
+		// check divisibility by 2
+		if (N.mod(TWO).compareTo(ZERO) == 0)
+			return TWO;
 
-				x = x.multiply(x).mod(N).add(c).mod(N);
-				xx = xx.multiply(xx).mod(N).add(c).mod(N);
-				xx = xx.multiply(xx).mod(N).add(c).mod(N);
-				divisor = x.subtract(xx).gcd(N);
-			
-			}
+		do {
 
-			while ((divisor.compareTo(ONE)) == 0);
-			
-			return divisor;
-		}
-
-		public static void factor(BigInteger N) {
-			
-			
-
-			if (N.compareTo(ONE) == 0) {
-				
-				return;}
-			
-			if (N.isProbablePrime(20)) {
-				System.out.println(N);
-				return;
-			}
-			
-			BigInteger divisor = rho(N);
-			factor(divisor);
-			factor(N.divide(divisor));
+			x = x.multiply(x).mod(N).add(c).mod(N);
+			xx = xx.multiply(xx).mod(N).add(c).mod(N);
+			xx = xx.multiply(xx).mod(N).add(c).mod(N);
+			divisor = x.subtract(xx).gcd(N);
 
 		}
+
+		while ((divisor.compareTo(ONE)) == 0);
+
+		return divisor;
+	}
+
+	public static void factor(BigInteger N) {
+
+		if (N.compareTo(ONE) == 0) {
+
+			return;
+		}
+
+		if (N.isProbablePrime(20)) {
+			System.out.println(N);
+			return;
+		}
+
+		BigInteger divisor = rho(N);
+		factor(divisor);
+		factor(N.divide(divisor));
 
 	}
+
+	public void setNbOperation(long nbOperation) {
+		this.nbOperation = nbOperation;
+	}
+
+	public String getNameAlgo() {
+		return nameAlgo;
+	}
+
+}

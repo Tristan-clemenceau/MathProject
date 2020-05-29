@@ -14,10 +14,10 @@ public class Main {
 		Test test01 = new Test();
 
 		//algo2.factor(N);
-		for (long i = 2; i < Long.MAX_VALUE; i++) {
+		/*for (long i = 2; i < Long.MAX_VALUE; i++) {
 			BigInteger inpTT = new BigInteger(Long.toString(i));
 			test01.factoristation(inpTT);
-		}
+		}*/
 		AlgoRhoPollard algo2 = new AlgoRhoPollard();
 		System.out.println("===============[FACTORISATION algo rho de Pollard]===============\"");
 		System.out.println("N =" +" "+ N + "" );
