@@ -13,6 +13,7 @@ class AlgoRhoPollard {
 	private HashMap<BigInteger,BigInteger> hm = new HashMap<BigInteger,BigInteger>();
 	private long nbOperation;
 	private String nameAlgo = "AlgoRhoPollard";
+	BigInteger cpt = BigInteger.valueOf(0);
 
 	public AlgoRhoPollard() {
 		nbOperation = 0;
@@ -51,7 +52,8 @@ class AlgoRhoPollard {
 
 		if (n.isProbablePrime(20)) {
 			System.out.println(n);
-			//ADD TO HASHMAP
+			hm.put(cpt,n);
+			cpt = cpt.add(BigInteger.valueOf(1));
 			return;
 		}
 
@@ -60,6 +62,7 @@ class AlgoRhoPollard {
 		factor(n.divide(divisor));
 		/*DISPLAY HASMAP*/
 	}
+	
 
 	public HashMap<BigInteger, BigInteger> getHm() {
 		return hm;
