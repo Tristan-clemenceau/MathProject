@@ -8,15 +8,19 @@ public class Main {
 		
 		/*VAR OBJECT*/
 		AlgoRhoPollard algo2 = new AlgoRhoPollard();
+		AlgoNaif algo1 = new AlgoNaif();
 		Test test01 = new Test();
 
 		//BOUCLE ALGO
-		for (long i = 2; i < 5; i++) {//VAR A METTRE 100 , Long.MAX_VALUE
+		for (long i = 2; i < 101; i++) {//VAR A METTRE 100 , Long.MAX_VALUE
 			BigInteger inpTT = new BigInteger(Long.toString(i));
 			/*ALGO*/
 			//test01.factoristation(inpTT);
+			algo1.factoristation(inpTT);
 			System.out.println("===============[FACTORISATION algo AlgoRhoPollard]==============="+"\nN = "+inpTT.toString());
 			algo2.factor(inpTT);
+			System.out.println("Nombre d'opérations = "+algo2.getNbOperation());
+			System.out.println("===============[FACTORISATION algo AlgoRhoPollard]===============");
 		}
 		
 		
