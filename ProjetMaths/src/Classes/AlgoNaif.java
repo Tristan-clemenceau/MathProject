@@ -12,6 +12,7 @@ import java.util.List;
 public class AlgoNaif {
 	final static List<BigInteger> primaryNumber = new ArrayList<BigInteger>();
 	private HashMap<BigInteger,BigInteger> hm = new HashMap<BigInteger,BigInteger>();
+	private String nameAlgo = "AlgoNaif";
 	private int nbOperations = 0;
 
 	public AlgoNaif() {

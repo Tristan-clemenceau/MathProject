@@ -2,6 +2,7 @@ package Classes;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.HashMap;
 
 class AlgoRhoPollard {
 
@@ -9,6 +10,7 @@ class AlgoRhoPollard {
 	private final static BigInteger ONE = new BigInteger("1");
 	private final static BigInteger TWO = new BigInteger("2");
 	private final static SecureRandom random = new SecureRandom();
+	private HashMap<BigInteger,BigInteger> hm = new HashMap<BigInteger,BigInteger>();
 	private long nbOperation;
 	private String nameAlgo = "AlgoRhoPollard";
 
@@ -16,23 +18,23 @@ class AlgoRhoPollard {
 		nbOperation = 0;
 	}
 
-	public static BigInteger rho(BigInteger N) {
+	public static BigInteger rho(BigInteger n) {
 
 		BigInteger divisor;
-		BigInteger c = new BigInteger(N.bitLength(), random);
-		BigInteger x = new BigInteger(N.bitLength(), random);
+		BigInteger c = new BigInteger(n.bitLength(), random);
+		BigInteger x = new BigInteger(n.bitLength(), random);
 		BigInteger xx = x;
 
 		// check divisibility by 2
-		if (N.mod(TWO).compareTo(ZERO) == 0)
+		if (n.mod(TWO).compareTo(ZERO) == 0)
 			return TWO;
 
 		do {
 
-			x = x.multiply(x).mod(N).add(c).mod(N);
-			xx = xx.multiply(xx).mod(N).add(c).mod(N);
-			xx = xx.multiply(xx).mod(N).add(c).mod(N);
-			divisor = x.subtract(xx).gcd(N);
+			x = x.multiply(x).mod(n).add(c).mod(n);
+			xx = xx.multiply(xx).mod(n).add(c).mod(n);
+			xx = xx.multiply(xx).mod(n).add(c).mod(n);
+			divisor = x.subtract(xx).gcd(n);
 
 		}
 
@@ -41,22 +43,22 @@ class AlgoRhoPollard {
 		return divisor;
 	}
 
-	public static void factor(BigInteger N) {
-
-		if (N.compareTo(ONE) == 0) {
-
+	public static void factor(BigInteger n) {
+		if (n.compareTo(ONE) == 0) {
 			return;
 		}
 
-		if (N.isProbablePrime(20)) {
-			System.out.println(N);
+		if (n.isProbablePrime(20)) {
+			System.out.println(n);
+			//ADD TO HASHMAP
 			return;
 		}
 
-		BigInteger divisor = rho(N);
+		BigInteger divisor = rho(n);
 		factor(divisor);
-		factor(N.divide(divisor));
-
+		factor(n.divide(divisor));
+		/*DISPLAY HASMAP*/
+		System.out.println("===============[FACTORISATION algo AlgoRhoPollard]===============");
 	}
 
 	public void setNbOperation(long nbOperation) {

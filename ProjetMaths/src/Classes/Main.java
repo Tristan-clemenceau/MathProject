@@ -6,23 +6,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		/////// ALGO RHO DE POLLARD //////
-		String input1 = ""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE+""+Long.MAX_VALUE;
-
-		BigInteger N = new BigInteger(input1);
-		//AlgoRhoPollard algo2 = new AlgoRhoPollard();
+		/*VAR OBJECT*/
+		AlgoRhoPollard algo2 = new AlgoRhoPollard();
 		Test test01 = new Test();
 
-		//algo2.factor(N);
-		/*for (long i = 2; i < Long.MAX_VALUE; i++) {
+		//BOUCLE ALGO
+		for (long i = 2; i < 5; i++) {//VAR A METTRE 100 , Long.MAX_VALUE
 			BigInteger inpTT = new BigInteger(Long.toString(i));
-			test01.factoristation(inpTT);
-		}*/
-		AlgoRhoPollard algo2 = new AlgoRhoPollard();
-		System.out.println("===============[FACTORISATION algo rho de Pollard]===============\"");
-		System.out.println("N =" +" "+ N + "" );
-		System.out.println("Factorisation de N :");
-		algo2.factor(N);
+			/*ALGO*/
+			//test01.factoristation(inpTT);
+			System.out.println("===============[FACTORISATION algo AlgoRhoPollard]==============="+"\nN = "+inpTT.toString());
+			algo2.factor(inpTT);
+		}
+		
 		
 		/*AlgoNaif algo = new AlgoNaif();
         String s = "10" ;
