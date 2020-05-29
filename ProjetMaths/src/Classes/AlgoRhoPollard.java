@@ -43,7 +43,8 @@ class AlgoRhoPollard {
 		return divisor;
 	}
 
-	public static void factor(BigInteger n) {
+	public void factor(BigInteger n) {
+		this.nbOperation++;
 		if (n.compareTo(ONE) == 0) {
 			return;
 		}
@@ -58,7 +59,18 @@ class AlgoRhoPollard {
 		factor(divisor);
 		factor(n.divide(divisor));
 		/*DISPLAY HASMAP*/
-		System.out.println("===============[FACTORISATION algo AlgoRhoPollard]===============");
+	}
+
+	public HashMap<BigInteger, BigInteger> getHm() {
+		return hm;
+	}
+
+	public void setHm(HashMap<BigInteger, BigInteger> hm) {
+		this.hm = hm;
+	}
+
+	public long getNbOperation() {
+		return nbOperation;
 	}
 
 	public void setNbOperation(long nbOperation) {

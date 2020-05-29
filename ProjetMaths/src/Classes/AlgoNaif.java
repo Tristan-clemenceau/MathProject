@@ -16,7 +16,7 @@ public class AlgoNaif {
 	private int nbOperations = 0;
 
 	public AlgoNaif() {
-		//initList();
+		initList();
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -31,7 +31,8 @@ public class AlgoNaif {
 	}
 
 	
-	public void factoristation2(BigInteger n) {
+	/*A SUPP
+	 * public void factoristation2(BigInteger n) {
 		initPrimaryNumber(n);
 		System.out.println("===============[FACTORISATION algo Naif]==============="+"\nN = "+n);
 		for (BigInteger bigInteger : primaryNumber) {
@@ -46,16 +47,17 @@ public class AlgoNaif {
 		if(n != BigInteger.valueOf(1) ) {
 			hm.put(n, BigInteger.valueOf(1));
 		}
-		/*display Hashmap*/
+		display Hashmap
 		displayMat();
-		System.out.println("\nNombre d'opérations = " + nbOperations ) ;
-		System.out.println("\n===============[FACTORISATION algo Naif]===============");
+		System.out.println("Nombre d'opérations = " + nbOperations ) ;
+		System.out.println("===============[FACTORISATION algo Naif]===============");
 		
-	}
+	}*/
 	
 	
 	public void factoristation(BigInteger n) {
 		System.out.println("===============[FACTORISATION algo Naif]==============="+"\nN = "+n);
+		hm.clear();
 		for (BigInteger bigInteger : primaryNumber) {
 			BigInteger cpt = BigInteger.valueOf(0);
 			while(isDivisible(n, bigInteger)) {
@@ -71,7 +73,7 @@ public class AlgoNaif {
 		/*display Hashmap*/
 		displayMat();
 		System.out.println("\nNombre d'opérations = " + nbOperations ) ;
-		System.out.println("\n===============[FACTORISATION algo Naif]===============");
+		System.out.println("===============[FACTORISATION algo Naif]===============");
 		
 	}
 	
@@ -92,6 +94,8 @@ public class AlgoNaif {
 		BigInteger square = n.sqrt();
 		BigInteger number = BigInteger.valueOf(1);
 		for(number= BigInteger.valueOf(1); (number.add(BigInteger.valueOf(1))).compareTo(square) == -1 ; number.add(BigInteger.valueOf(1))) {
+			
+			
 			if (number.isProbablePrime(Integer.MAX_VALUE)) {
 				primaryNumber.add(number);
 			}
