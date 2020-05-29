@@ -25,13 +25,14 @@ public class AlgoNaif {
 		return n.mod(diviseur)== BigInteger.valueOf(0);
 	}
 	
+	/* A modifier
 	public boolean isPrime(BigInteger n) {
 		nbOperations ++ ;
 		return n.isProbablePrime(Integer.MAX_VALUE);
 	}
-
+	*/
 	
-	/*A SUPP
+	/*A Modifier
 	 * public void factoristation2(BigInteger n) {
 		initPrimaryNumber(n);
 		System.out.println("===============[FACTORISATION algo Naif]==============="+"\nN = "+n);
