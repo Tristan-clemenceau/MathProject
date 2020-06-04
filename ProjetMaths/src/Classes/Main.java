@@ -40,8 +40,6 @@ public class Main {
 			System.out.println("Erreur : "+e.getMessage());
 		}
 
-		
-
 	}
 
 }

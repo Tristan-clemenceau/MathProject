@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @author trist
- *
- */
 public class AlgoNaif {
 	final static List<BigInteger> primaryNumber = new ArrayList<BigInteger>();
 	private HashMap<BigInteger,BigInteger> hm = new HashMap<BigInteger,BigInteger>();
@@ -17,7 +13,6 @@ public class AlgoNaif {
 
 	public AlgoNaif() {
 		initList();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public boolean isDivisible(BigInteger n,BigInteger diviseur) {
@@ -25,12 +20,12 @@ public class AlgoNaif {
 		return n.mod(diviseur)== BigInteger.valueOf(0);
 	}
 	
-	/* A modifier
+	
 	public boolean isPrime(BigInteger n) {
 		nbOperations ++ ;
 		return n.isProbablePrime(Integer.MAX_VALUE);
 	}
-	*/
+	
 	
 	/*A Modifier
 	 * public void factoristation2(BigInteger n) {
