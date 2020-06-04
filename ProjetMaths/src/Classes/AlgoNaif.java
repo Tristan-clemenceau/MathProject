@@ -134,5 +134,9 @@ public class AlgoNaif {
 	public String toString() {
 		return "AlgoNaif : "+primaryNumber.toString();
 	}
-	
+
+	public int getNbOperations() {
+		return nbOperations;
+	}
+
 }
